@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹窗</title>
+	<input type="button" id="button" value="点这里" onclick="login()" />
+</head>
+<body>
+<script type="text/javascript">
+	function login(){
+		var firstDiv  = document.createElement("div");
+		var secondDiv  = document.createElement("div");
+		firstDiv.style="position: fixed; top: 0px; left: 0px;width:100% ;height:100%; z-index:1000; overflow:hidden; background-color :#000; opacity:0.5";
+		secondDiv.style="background: #fff none repeat scroll 0 0;  border-radius: 4px;overflow: hidden;" +
+                        "position: relative;width: 420px;margin:50px auto;font-family:Microsoft YaHei;color: #666;z-index:1999;";
+         document.body.appendChild(firstDiv);
+        document.body.appendChild(secondDiv);
+		var divTitle=document.createElement("h1");
+		divTitle.innerHTML="欢迎登陆";
+		secondDiv.appendChild(divTitle);
+		var user=document.createElement("input");
+		var password=document.createElement("input");
+		user.type ="username";
+		password.type ="password";
+		user.style="display:block;width:300px;height:40px;margin:10px auto;";
+		password.style="display:block;width:300px;height:40px;margin:10px auto";
+		secondDiv.appendChild(user);
+		secondDiv.appendChild(password);
+		var login= document.createElement("input");
+        var reset=document.createElement("input");
+        login.type="submit";
+        reset.type="reset";
+        login.innerHTML="登陆";
+        reset.innerHTML="重置";
+        login.style="background-color:#ca5252;color:white;cursor: pointer;font-size: 18px;height: 44px;line-height: 44px;text-align: center;width: 140px;margin:10px 20px 20px 60px;";
+        reset.style="background-color:#ca5252;color:white;cursor: pointer;font-size: 18px;height: 44px;line-height: 44px;text-align: center;width: 140px;margin:10px 60px 20px 0px;";
+        secondDiv.appendChild(login);
+        secondDiv.appendChild(reset);
+		
+	}
+
+</script>
+</body>
+</html>

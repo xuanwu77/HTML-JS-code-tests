@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="demo" type="button" value="点击我" />
+	<script type="text/javascript">
+	
+/*		var EventUtil={
+			addEvent:function(ele,type,handler){
+				try{
+					ele.addEventListener(type,handler,false);
+				
+				}catch(e){
+					try{
+						ele.attachEvent("on"+type,handler);
+					}catch(e){
+						ele.["on"+type]=handler;
+					}
+
+				}
+			},
+			removeEvent:function(ele,type,handler){
+				try{
+					ele.addEventListener(type,handler,false);
+				
+				}catch(e){
+					try{
+						ele.attachEvent("on"+type,handler);
+					}catch(e){
+						ele.["on"+type]=handler;
+					}
+
+				}
+			}
+		};*/
+			var EventUtil={
+			addEvent:function(ele,type,handler){
+				if(ele.addEventListener){
+					ele.addEventListener(type,handler,false);
+				
+				}else if(ele.attachEvent){
+					
+						ele.attachEvent("on"+type,handler);
+					}else{
+						ele.["on"+type]=handler;
+					
+					}
+
+			},
+		
+			removeEvent:function(ele,type,handler){
+				if(ele.addEventListener){
+					ele.addEventListener(type,handler,false);
+				
+				}else if(ele.addEvent){
+					
+						ele.attachEvent("on"+type,handler);
+					}else{
+						ele.["on"+type]=handler;
+					
+					}
+
+			}
+		};
+      var obj=document.getElementById("demo");
+      var handler=function(){
+      	alert("haha");
+      };
+      EventUtil.addEvent(obj,"click",handler);
+
+
+
+
+
+    </script>
+		
+</body>
+</html>

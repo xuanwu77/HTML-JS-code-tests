@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>tsetTanChuang</title>
+    </head>
+    <body>
+        <button onclick="doSome()">click</button>
+        <script>
+            function doSome(){
+                var discover = document.createElement("div");
+                var divBody =document.createElement("div");
+                document.body.appendChild(discover);
+                document.body.appendChild(divBody);
+                discover.style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; " +
+                        " overflow: hidden;opacity: 0.5; z-index: 1000; " +
+                        "background: transparent radial-gradient(at center center , rgba(0, 0, 0, 0.3), "  + 
+                        "rgb(0, 0, 0) 75%) repeat scroll 0% 0%;";
+                divBody.style="background: #fff none repeat scroll 0 0;border-radius: 4px;overflow: hidden;" +
+                        "position: relative;width: 420px;margin:50px auto;font-family:Microsoft YaHei;color: #666;z-index:1999;";
+                var divTitle =document.createElement("div");
+                divBody.appendChild(divTitle);
+                var divTitleText=document.createTextNode("欢迎登陆阿里巴巴");
+                divTitle.appendChild(divTitleText);
+                divTitle.style="text-align:center;font-size:24px;width:100%;height:40px;line-height:40px;margin-top:30px;";
+                var divUser=document.createElement("input");
+                var divPass=document.createElement("input");
+                divUser.type="username";
+                divPass.type="password";
+                divBody.appendChild(divUser);
+                divBody.appendChild(divPass);
+                divUser.style="display:block;width:300px;height:40px;margin:10px auto;";
+                divPass.style="display:block;width:300px;height:40px;margin:10px auto;";
+                var divLog=document.createElement("input");
+                var divReset=document.createElement("input");
+                divLog.type="submit";
+                divReset.type="reset";
+                divLog.value="登陆";
+                divReset.innerHTML="重置";
+                var Lstyle="background-color:#ca5252;color:white;cursor: pointer;font-size: 18px;height: 44px;line-height: 44px;text-align: center;width: 140px;margin:10px 20px 20px 60px;";
+                var Rstyle="background-color:#ca5252;color:white;cursor: pointer;font-size: 18px;height: 44px;line-height: 44px;text-align: center;width: 140px;margin:10px 60px 20px 0px;";
+                divLog.style=Lstyle;
+                divReset.style=Rstyle;
+                divBody.appendChild(divLog);
+                divBody.appendChild(divReset);
+            }
+
+        </script>
+    </body>
+</html>

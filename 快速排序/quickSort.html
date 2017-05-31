@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>quickSort</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	function quickSort(arr){
+		if (arr.length<=1) {
+			return arr;  //如果数组只有一个值，就直接返回；
+		}
+
+		var num = Math.floor(arr.length/2);//找到中间数的索引值，如果是浮点数，则向下取整
+		var numValue = arr.splice(num,1);//找到中间数的值
+		console.log(numValue);
+		var left= [];
+		var right =[];
+
+		//通过for循环，分别存储左边和右边数组
+		 for(var i=0;i<arr.length;i++){
+		 	if(arr[i]<numValue){
+		 		left.push(arr[i]);  //小于基准点的数传到左边数组
+		 	}else{
+		 		right.push(arr[i]);//大于基准点的数传到右边数组
+		 	}
+		 }
+
+		 return quickSort(left).concat([numValue],quickSort(right));//递归不断重复比较
+	} //函数quickSort()结束
+ 		
+
+ 	document.write(quickSort([32,45,37,16,2,87]));
+	</script>
+</body>
+</html>

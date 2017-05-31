@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>实现拖拽功能</title>
+	<style type="text/css">
+		body {
+		padding: 0;
+		margin: 0;
+		}
+		#box {
+		width: 200px; 
+		height:200px;
+		background-color:#ccc;
+		position: absolute;
+		cursor: pointer;
+		}
+	</style>  
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/javascript">
+		window.onload = function(){
+			var box = document.getElementById("box");
+			
+			box.onmousedown = function(e){
+				var e = e || window.event;
+				var diffX = e.clientX - box.offsetLeft;
+				//console.log(e.clientX);  //测试用
+				var diffY = e.clientY - box.offsetTop;
+				document.onmousemove = function(e){       //document的onmousemove事件
+					var e = e || window.event;
+					console.log(box.offsetLeft);
+					box.style.left = e.clientX - diffX + "px";
+					box.style.top = e.clientY - diffY + "px";
+					};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmousedown = null;
+				};
+			};
+
+		};
+	</script>
+</body>
+</html>

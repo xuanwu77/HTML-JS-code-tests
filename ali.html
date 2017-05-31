@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>tsetTanChuang</title>
+</head>
+<body>
+
+<script>
+    var ali ={
+        address:{
+            street:"南大道",
+            num:13
+        },
+        age:15
+    };
+    alert(typeof ali);
+
+    function doSome(obj,str) {
+        if (typeof(obj) != "object"){
+            alert("不是object！");
+            return undefined;
+        }else{
+        var strArr = str.split('.');
+
+        if (strArr.length > 1 ){
+            obj1=obj;
+            for (var i=0;i<strArr.length;i++){
+                if (obj1[strArr[i]]){
+                    obj1 = obj1[strArr[i]];
+                    console.log(obj1);
+                }else{
+                    return undefined;
+                }
+            }
+            return obj1;
+        }else{
+            //document.write(obj[strArr]);
+            return obj[strArr];
+        }
+
+        }
+    }
+    alert(doSome(ali,'address.street'));
+    alert(doSome(ali,'age'));
+    //阿里测评结束了，我也写出来了！艹，基础不扎实
+    console.log("obj1是："+obj1);
+    //函数内部如果不用var定义变量，则是全局的！如果用了var，外面则访问不到！
+
+
+</script>
+</body>
+</html>
