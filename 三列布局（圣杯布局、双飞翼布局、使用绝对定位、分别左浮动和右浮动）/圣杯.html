@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            min-width: 730px; /* 2*left + right */
+        }
+        .container{
+            padding-left: 210px;
+            padding-right: 310px;
+        }
+        .column{
+            float: left;
+            height: 300px;
+        }
+        .middle{
+            width: 100%;
+            background-color: rgba(255, 0, 0, .5);
+        }
+        .left{
+            position: relative;
+            left: -210px;
+            width: 200px;
+            margin-left: -100%;
+            background-color: rgba(0, 255, 0, .5);
+        }
+        .right{
+            position: relative;
+            right: -310px;
+            width: 300px;
+            margin-left: -300px;
+            background-color: rgba(0, 0, 255, .5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column middle"></div>
+        <div class="column left"></div>
+        <div class="column right"></div>
+    </div>
+</body>
+</html>
