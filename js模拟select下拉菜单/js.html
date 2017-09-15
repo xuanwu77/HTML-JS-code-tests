@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        fieldset{
+            width: 500px;
+            padding:30px;
+            border:2px solid #ccc;
+        }
+        #sel-wrap {
+            position: relative;
+        }
+        #sel-show{
+            box-sizing: border-box;
+            width:180px;
+            height: 25px;
+            line-height: 25px;
+            padding-left: 10px;
+            background: #fff url('http://opif0c56u.bkt.clouddn.com/select.gif') no-repeat right center;
+            border:1px solid #000;
+            cursor:pointer;
+        }
+        #sel-option{
+            position: absolute;
+            box-sizing: border-box;
+            width: 180px;          
+            border: 2px solid #A5D2D5;
+            border-top: none;
+            border-bottom: none;
+            background-color: #fff;
+        }
+        #sel-option li{
+            height: 25px;
+            padding-left: 15px;
+            font: 13px/25px 'microsoft yahei';
+            list-style: none;
+            box-sizing: border-box;
+            border-bottom: 2px solid #A5D2D5;
+            cursor: default;
+        }
+        #sel-option li:hover {
+            color: #912B32;
+            background-color: #A5D2D5;
+            padding-left: 4px;
+            font-size: 14px;
+        }
+        #sel-option li:hover:before {
+            content: '\2714' ' ';
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <fieldset>
+            <legend>模拟实现select下拉列表</legend>
+            <div id="sel-wrap">
+                <div id="sel-show">=请选择=</div>
+                <ul id="sel-option">
+                    <li class="item">早上吃包子</li>
+                    <li class="item">中午吃米饭</li>
+                    <li class="item">晚上吃面条</li>
+                    <li class="item">宵夜吃烧烤</li>
+                    <li class="item">睡前喝牛奶</li>
+                </ul>
+            </div>
+        </fieldset>
+    </div>
+</body>
+</html>

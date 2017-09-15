@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<input id="demo" type="button" value="点击我" />
-	<script type="text/javascript">
+
 	
 /*		var EventUtil={
 			addEvent:function(ele,type,handler){
@@ -36,33 +28,50 @@
 				}
 			}
 		};*/
-			var EventUtil={
+		var EventUtil={
+			//绑定事件
 			addEvent:function(ele,type,handler){
 				if(ele.addEventListener){
 					ele.addEventListener(type,handler,false);
-				
-				}else if(ele.attachEvent){
-					
+				}else if(ele.attachEvent){					
 						ele.attachEvent("on"+type,handler);
 					}else{
-						ele.["on"+type]=handler;
-					
+						ele["on" + type]=handler;
 					}
-
 			},
-		
+			//移除事件
 			removeEvent:function(ele,type,handler){
 				if(ele.addEventListener){
-					ele.addEventListener(type,handler,false);
-				
-				}else if(ele.addEvent){
-					
+					ele.addEventListener(type,handler,false);			
+				}else if(ele.addEvent){					
 						ele.attachEvent("on"+type,handler);
 					}else{
-						ele.["on"+type]=handler;
-					
+						ele["on"+ type]=handler;				
 					}
-
+			}
+			//获取事件对象的引用
+			getEvent : function(event){
+				return event ? event : windoe.event;
+			},
+			//获取事件目标
+			getTarget: function(event){
+				return event.target || event.srcElement;
+			},
+			//阻止事件冒泡
+			stopProgation:  function(event){
+				if(event.stopProgation){
+					event.stopProgation();
+				}else{
+					event.cancelBubble = true;
+				}
+			},
+			//取消事件的默认行为
+			preventDefault: function(event){
+				if(event.preventDefault){
+					event.preventDefault();
+				}else{
+					event.returnValue = false;
+				}
 			}
 		};
       var obj=document.getElementById("demo");
@@ -70,12 +79,3 @@
       	alert("haha");
       };
       EventUtil.addEvent(obj,"click",handler);
-
-
-
-
-
-    </script>
-		
-</body>
-</html>
