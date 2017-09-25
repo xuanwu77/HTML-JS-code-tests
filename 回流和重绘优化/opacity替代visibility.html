@@ -1,0 +1,51 @@
+<!-- 
+用 opacity替代visibility
+visibility会引起重绘：92 + 59 + paint（34） +83 = 268us
+opacity:
+
+
+-->
+
+
+<!-- <html>
+    <head>
+      <style>
+        #rect {
+          width: 100px;
+          height: 100px;
+          background: blue;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="rect"><div>
+      <script>
+        setTimeout ( () => {
+          document.getElementById('rect').style.visibility = "hidden";
+        }, 2000)
+      </script>
+    </body>
+  </html> -->
+
+
+<!-- 使用opacity -->
+  <html>
+    <head>
+      <style>
+        #rect {
+          width: 100px;
+          height: 100px;
+          background: blue;
+          opacity：1;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="rect"><div>
+      <script>
+        setTimeout ( () => {
+          document.getElementById('rect').style.opacity = "0";
+        }, 2000)
+      </script>
+    </body>
+  </html>

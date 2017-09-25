@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>懒加载和预加载</title>
+    <style>
+        .image-item{
+            width: 40%;
+            height: 400px;   /* 占位，用于即使图片没有加载出来，也能获取其高度 */
+            margin-right:5%;
+
+            display: inline-block;
+            background: grey;
+        }
+        .img-list{
+            margin-left: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-list">
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww1.sinaimg.cn/large/006y8mN6gw1fa7kaed2hpj30sg0l9q54.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww1.sinaimg.cn/large/006y8mN6gw1fa7kaed2hpj30sg0l9q54.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww1.sinaimg.cn/large/006y8mN6gw1fa7kaed2hpj30sg0l9q54.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" >
+        <img src="default.jpg" class="image-item" lazyload="true" data-src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg" >
+    </div>
+    <script src="./lazyload.js"></script>
+</body>
+</html>

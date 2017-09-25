@@ -1,0 +1,56 @@
+<!-- 
+translate 替代 top
+因为 ：top会触发回流(回流在浏览器上表示为layout)，但translate不会。
+top ：51 + layout(53) + 47 + 13 +120  = 284us
+tranlate ： 78 + 57 + 18 + 62 = 215us  没有layout这一步了
+应用场景：比如网页上有一个浮窗，会左右飘动，此时用transform
+-->
+
+
+<!-- 使用top -->
+<!-- <html>
+    <head>
+      <style>
+        #rect {
+          position: relative;
+          top: 0;
+          width: 100px;
+          height: 100px;
+          background: blue;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="rect"><div>
+      <script>
+        setTimeout ( () => {
+          document.getElementById('rect').style.top = "100px";
+        }, 2000)
+      </script>
+    </body>
+  </html> -->
+
+
+
+  <!-- 使用tranlate -->
+  <html>
+    <head>
+      <style>
+        #rect {
+          transform: translateY(0);
+          width: 100px;
+          height: 100px;
+          background: blue;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="rect"><div>
+      <script>
+        setTimeout ( () => {
+          document.getElementById('rect').style.transform = "translateY(100px)";
+        }, 2000)
+      </script>
+    </body>
+  </html>
+  
