@@ -1,8 +1,7 @@
 <!-- 
 用 opacity替代visibility
 visibility会引起重绘：92 + 59 + paint（34） +83 = 268us
-opacity:
-
+opacity: 44 + 46 + 96 = 186us
 
 -->
 
@@ -36,15 +35,17 @@ opacity:
           width: 100px;
           height: 100px;
           background: blue;
-          opacity：1;
+          opacity: 1;
+          transform: translateZ(0);  /* 将rect元素独立成一个单独图层 */
         }
+       
       </style>
     </head>
     <body>
-      <div id="rect"><div>
+      <div id="rect"></div>
       <script>
         setTimeout ( () => {
-          document.getElementById('rect').style.opacity = "0";
+          document.getElementById('rect').style.opacity = "0";  //会改变rect所在图层的阿尔法通道,如果该图层除了rect还有其他元素的话，会发生回流，所以将rect独立成一个单独图层，所以将rect元素独立成一个单独图层
         }, 2000)
       </script>
     </body>

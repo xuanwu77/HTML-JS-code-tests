@@ -1,0 +1,56 @@
+<!-- 不要把 DOM 结点的属性值放在一个循环里当成循环里的变量 -->
+
+<!-- 反面 例子 -->
+<html>
+    <head>
+        <style>
+        #rect {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: blue;
+            opacity: 1;
+        }  
+        </style>
+    </head>
+    <body>
+        <div id="rect"></div>
+        <script>
+            var doms = [];//通过选择器选择出了一个dom元素的数组
+            var domsTop = [];//存放每个dom元素的位置
+            //去根据当前页面的可视区域的高度去计算这个dom元素的位置
+            for(var i =0;i < doms.length;i++){
+                //在每次循环中都会获取一次可视区域高度，是不好的做法
+                var clientHeigth = document.body.clientHeight; //获取可视区域高度
+                domsTop.push(clientHeigth + i * 100);
+            }
+        </script>
+    </body>
+</html>
+
+<!-- 正面举例 -->
+<html>
+    <head>
+        <style>
+        #rect {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: blue;
+            opacity: 1;
+        }  
+        </style>
+    </head>
+    <body>
+        <div id="rect"></div>
+        <script>
+            var doms = [];//通过选择器选择出了一个dom元素的数组，[]这里只是表示装有元素的数组，并不是空的
+            var domsTop = [];//存放每个dom元素的位置
+            var clientHeigth = document.body.clientHeight; //获取可视区域高度，在循环外就缓存下来
+            //去根据当前页面的可视区域的高度去计算这个dom元素的位置
+            for(var i =0;i < doms.length;i++){
+                domsTop.push(clientHeigth + i * 100);
+            }
+        </script>
+    </body>
+    </html>

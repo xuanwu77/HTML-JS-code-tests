@@ -1,0 +1,255 @@
+<!-- 不要使用 table 布局，可能很小的一个小改动会造成整个 table 的重新布局 
+table ： 
+30行 修改最后一行 layout: 0.34ms
+
+div:
+30行 修改最后一行 layout: 0.11ms
+
+-->
+
+<html>
+    <head>
+        <style>
+        #rect {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: blue;
+            opacity: 1;
+            display: none;
+        }  
+        </style>
+    </head>
+    <body>
+        <div>
+            <!-- <table style="width:500px;">
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td>world~~~</td>
+                </tr>
+                <tr>
+                    <td>hello~~~</td>
+                    <td id="last">world~~~</td>
+                </tr>
+            </table>  -->
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span>world~~~</span>
+            </div>   
+            <div>
+                <span>hello~~~</span>
+                <span id="last">world~~~</span>
+            </div>   
+        </div> 
+       <script>
+           setTimeout(() => {
+            document.getElementById('last').style.width = "100px";  
+            document.getElementById('last').innerHTML = "table--";  
+           },2000);
+       </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!-- 对于动画新建图层 -->
+
+<html>
+    <head>
+        <style>
+        #rect {
+            position: relative;
+            will-change: transfrom;
+            transform: translateZ(0);    /* 对于动画新建图层 */
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: blue;
+            opacity: 1;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="rect"></div>
+        <script>
+        var distance = 0;
+        setInterval ( () => {
+            distance ++;
+            document.getElementById("rect").style.top  = distance + 'px';
+            document.getElementById("rect").style.left = distance + 'px';
+        }, 100);  //设置100ms的话，触发回流和重绘的次数较为频繁，但是动画的平滑度较高，视觉效果好；所以要平衡平滑度和回流重绘次数
+        </script>
+    </body>
+</html>

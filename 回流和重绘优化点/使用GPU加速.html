@@ -1,0 +1,34 @@
+<!-- 浏览器会监测一些css属性，来启用GPU加速
+GPU是图形处理器，可以加速图形的渲染和填充
+-->
+
+
+<html>
+    <head>
+        <style>
+        #rect {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: blue;
+            opacity: 1;
+            /* 以下两种方法检测到transform属性都会启用GPU加速 */
+            transform: translateZ(0);  
+            transform: translate3d(0,0,0);/* 不能滥用，该方法虽然启动了GPU加速器，但是也有代价，就是新建了图层。有时候网页的图层过多会造成合成图层的代价增大 */
+        }
+        </style>
+    </head>
+    <body>
+        <div id="rect"></div>
+        <script>
+        var distance = 0;
+        setInterval ( () => {
+            distance ++;
+            document.getElementById("rect").style.top  = distance + 'px';
+            document.getElementById("rect").style.left = distance + 'px';
+        }, 100);  //设置100ms的话，触发回流和重绘的次数较为频繁，但是动画的平滑度较高，视觉效果好；所以要平衡平滑度和回流重绘次数
+        </script>
+    </body>
+</html>

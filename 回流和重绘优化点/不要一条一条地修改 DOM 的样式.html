@@ -1,0 +1,65 @@
+<!-- 不要一条一条地修改 DOM 的样式，预先定义好 class，然后修改 DOM 的 className -->
+
+<!-- <html>
+    <head>
+        <style>
+        #rect {
+            position: relative;
+            will-change: transform;
+            width: 100px;
+            height: 100px;
+            background: blue;
+            opacity: 1;
+            transform: translateZ(0);  /* 将rect元素独立成一个单独图层 */
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div id="rect"></div>
+        <script>
+        setTimeout ( () => {
+            document.getElementById('rect').style.opacity = "0";  
+            document.getElementById('rect').style.width = "200px";  
+            document.getElementById('rect').style.height = "300px";  
+            document.getElementById('rect').style.left = "300px";  
+            document.getElementById('rect').style.top = "200px";  
+            document.getElementById('rect').style.opacity = "1";  
+        }, 2000)
+        </script>
+    </body>
+</html> -->
+
+
+
+<html>
+    <head>
+        <style>
+        #rect {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: blue;
+            opacity: 1;
+            transform: translateZ(0);  /* 将rect元素独立成一个单独图层 */
+        }
+
+        /* 考虑到优先级问题，所以写成#rect.action  */
+        #rect.action {
+            width: 200px;
+            height: 300px;
+            left: 300px;
+            top: 200px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="rect"></div>
+        <script>
+        setTimeout ( () => {
+            document.getElementById('rect').class ="action";  
+        }, 2000)
+        </script>
+    </body>
+</html>
+    
