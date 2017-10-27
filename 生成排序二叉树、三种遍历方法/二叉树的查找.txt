@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //对于排序二叉树进行中序遍历，结果是一组数的升序排列。
+        function BinaryTree(){
+        //每个节点都有3个属性，包括节点值、左孩子和右孩子
+        var Node = function(key){
+            this.key = key;
+            this.left = null;
+            this.right = null;
+        };
+        //根节点先设为null
+        var root = null;
+        //
+        var insertNode = function(node,newNode){
+            if(newNode.key < node.key){
+                if(node.left === null){
+                    node.left = newNode;
+                }else{
+                    insertNode(node.left,newNode);
+                }
+            }else{
+                if(node.right === null){
+                    node.right = newNode;
+                }else{
+                    insertNode(node.right,newNode);
+                }
+            }
+        };
+
+        this.insert = function(key){
+            var newNode = new Node(key);
+            if(root === null){
+                root = newNode;
+            }else{
+                insertNode(root,newNode);
+            }
+        };
+        //实现中序遍历，可以实现数的升序
+        var inOrderTraverseNode = function(node,callback){
+            if(node !== null){
+                inOrderTraverseNode(node.left,callback);
+                callback(node.key);
+                inOrderTraverseNode(node.right,callback);
+            }
+        };
+
+        this.inOrderTraverse = function(callback){
+            inOrderTraverseNode(root,callback);
+        };
+
+        //实现前序遍历，最大的作用是把已有的二叉树重新复制一份
+        var preOrderTraverseNode = function(node,callback){
+            if(node !== null){
+                callback(node.key);
+                preOrderTraverseNode(node.left,callback);
+                preOrderTraverseNode(node.right,callback);
+
+            }
+        };
+
+        this.preOrderTraverse = function(callback){
+            preOrderTraverseNode(root,callback);
+        };
+
+        //实现后序遍历，可以作用于文件系统的遍历
+        var postOrderTraverseNode = function(node,callback){
+            if(node !== null){
+                postOrderTraverseNode(node.left,callback);
+                postOrderTraverseNode(node.right,callback);
+                callback(node.key);
+
+            }
+        };
+
+        this.postOrderTraverse = function(callback){
+            postOrderTraverseNode(root,callback);
+        };
+
+        //查找二叉树中的最小值
+        var minNode = function(node){
+            if(node){
+                while(node && node.left !== null){
+                 node = node.left;
+                }
+            }
+        };
+
+        this.min = function(){
+            return minNode(root);
+        };
+
+    }
+
+    var nodes = [8,3,10,1,6,14,4,7,13];
+    var binaryTree = new BinaryTree();
+    nodes.forEach(function(key){
+        binaryTree.insert(key);
+    }); 
+
+    //callback用来定义如何处理当前数值
+    var callback = function(key){
+        console.log(key);
+    };
+    binaryTree.postOrderTraverse(callback);
+    </script>
+</body>
+</html>

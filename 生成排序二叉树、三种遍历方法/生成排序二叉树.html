@@ -8,6 +8,8 @@
 </head>
 <body>
     <script>
+        //排序二叉树，或者称二叉查找树，特点左孩子小于父节点，右孩子大于父节点
+
         function BinaryTree(){
         //每个节点都有3个属性，包括节点值、左孩子和右孩子
         var Node = function(key){
@@ -42,10 +44,6 @@
                 insertNode(root,newNode);
             }
         };
-        //实现中序遍历
-        this.inOrderTraverse = function(callback){
-            
-        }
     }
 
     var nodes = [8,3,10,1,6,14,4,7,13];
